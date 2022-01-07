@@ -97,6 +97,7 @@ body.dark-theme{
     padding-left: var(--mb-0-5);
     margin:0;
     margin-top: -5 px;
+    gap: var(--mb-0-75);
 }
 .change-theme{
     font-size: 1.25 rem;
@@ -180,4 +181,94 @@ img{
     right: 0;
     z-index: var(--z-fixed);
     background-color: var(--body-color);
+}
+.nav{
+    max-width: 968px;
+    height:var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: var(--mb-0-5);
+    margin-right: var(--mb-0-25);
+}
+.nav__logo,nav__toggle{
+    color: var(--title-color);
+    font-weight: var(--font-medium);
+
+}
+.nav__logo:hover{
+    color: var(--first-color);
+}
+.nav__toggle{
+    font-size: var(--h3-font-size);
+    cursor: pointer;
+    margin-right: 2 rem;
+}
+.nav__toggle:hover{
+    color: var(--first-color);
+
+}
+.navbar-brand{
+    font-family: var(--badowala-font);
+}
+@media screen and (max-width:768px) {
+    .nav__menu{
+        position: fixed;
+        bottom: -100%;
+        right: 0;
+        left: 0;
+        width: 100%;
+        background-color: var(--body-color);
+        padding:2rem 1.5rem 4rem;
+        box-shadow: 0 -1px 4px rgba(0,0,0,0.15);
+        border-radius: 1.5rem 1.5rem 0 0;
+        transition: .5sec;
+    }   
+}
+
+.nav__list{
+    grid-template-columns: repeat(3,1fr);
+    gap: 2 rem;
+}
+.nav__link{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: var(--small-font-size);
+    color: var(--title-color);
+    font-weight: var(--font-medium);
+
+}
+.nav__link:hover{
+    color: var(--first-color);
+}
+.nav__icon{
+    font-size: 1.2rem;
+
+}
+
+.nav__close{
+    position: absolute;
+    right:1.3rem;
+    bottom: .5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--first-color);
+}
+.nav__close:hover{
+    color: var(--first-color-alt);
+}
+/* Show menu */
+.show-menu{
+    bottom: 0;
+}
+
+/* active link */
+.active-link{
+    color: var(--first-color);
+}
+
+/* Change background header */
+.scroll-header{
+    box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15);
 }
