@@ -51,3 +51,13 @@ function linkAction(){
 }
 
 navLink.forEach(n=>n.addEventListener('click',linkAction))
+
+
+// Typewriter
+
+new Typewriter('#typewriter', {
+  strings: ['Pankaj Bhattarai', 'Endangered',"Student"],
+  autoStart: true,
+  loop:true,
+  cursor:"|"
+});

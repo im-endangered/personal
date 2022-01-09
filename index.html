@@ -80,7 +80,11 @@
         </div>
         <div class="nav__btns">
           <!-- Theme changing options  -->
-          <i data-mode="dark" id="theme-button"class="uil uil-cloud-moon moon-change-theme"></i>
+          <i
+            data-mode="dark"
+            id="theme-button"
+            class="uil uil-cloud-moon moon-change-theme"
+          ></i>
           <div class="nav__toggle" id="nav-toggle">
             <i class="uil uil-bars"></i>
           </div>
@@ -90,7 +94,72 @@
     <!-- =====================MAIN================================= -->
     <main class="main">
       <!-- home -->
-      <section class="home section" id="home"></section>
+      <section class="home section" id="home">
+        <div class="home__container container grid">
+          <div class="home__content grid">
+            <div class="home__social">
+              <a
+                href="https://www.linkedin.com/in/pankajbhattarai/"
+                target="_blank"
+                class="home__social-icon"
+                id="myLinkedIn"
+              >
+                <i class="uil uil-linkedin"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/im.endangered/"
+                target="_blank"
+                class="home__social-icon"
+                id="myInstagram"
+              >
+                <i class="uil uil-instagram"></i>
+              </a>
+              <a
+                href="https://www.facebook.com/im.endangered/"
+                target="_blank"
+                class="home__social-icon"
+                id="myFacebook"
+              >
+                <i class="uil uil-facebook"></i>
+              </a>
+              <a
+                href="https://github.com/im-endangered/"
+                target="_blank"
+                class="home__social-icon"
+                id="myGithub"
+              >
+                <i class="uil uil-github"></i>
+              </a>
+              <a
+                href="https://twitter.com/pankaj69420"
+                target="_blank"
+                class="home__social-icon"
+                id="myTwitter"
+              >
+                <i class="uil uil-twitter"></i>
+              </a>
+            </div>
+          </div>
+          <div class="home__data">
+            <small class="home__welcome s-color"> Hey Pretty Stranger!! </small>
+            <h1 class="home__title">I am</h1>
+            <!-- <h3 class="home__subtitle" id="home-bio">A learner </h3> -->
+
+              <div id="typewriter" class="Typewriter"></div>
+            <a href="#contact" class="button button--flex"
+              >Contact Me<i class="uil uil-comment-message button__icon"></i
+            ></a>
+          </div>
+        
+        </div>
+        <div class="home__scroll">
+          <a href="#about" class="home__scroll-button button--flex">
+            <i class="uil uil-mouse-alt home__scroll-mouse"></i>
+            <!-- <span class="home__scroll-name">Scroll Down</span>
+            <i class="uil uil-arrow-down home__scroll-arrow"></i> -->
+          </a>
+        </div>
+      </section>
       <!-- about me -->
       <section class="about section" id="about"></section>
       <!-- qualifications -->
@@ -113,6 +182,8 @@
 
     <!-- Argon JS -->
     <script src="/js/argon-design-system.js"></script>
+    <!-- typewriter -->
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
     <!-- self script -->
     <script src="/js/script.js"></script>
   </body>
