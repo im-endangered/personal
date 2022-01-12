@@ -61,3 +61,15 @@ new Typewriter('#typewriter', {
   loop:true,
   cursor:"|"
 });
+new Typewriter('#typewriter1', {
+    strings: ['+977 9823460246', '+91 7200474587'],
+    autoStart: true,
+    loop:true,
+    cursor:"|"
+  });
+  new Typewriter('#typewriter2', {
+    strings: ['Suryabinayak-04, Bhaktapur, Nepal', 'Potheri, 603203, India'],
+    autoStart: true,
+    loop:true,
+    cursor:"|"
+  });
