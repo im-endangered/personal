@@ -56,19 +56,19 @@ navLink.forEach(n=>n.addEventListener('click',linkAction))
 // Typewriter
 
 new Typewriter('#typewriter', {
-  strings: ['Pankaj Bhattarai', 'Endangered',"Student"],
+  strings: ['Pankaj Bhattarai', 'A tech enthusiast',"Occassional Writer"],
   autoStart: true,
   loop:true,
   cursor:"|"
 });
 new Typewriter('#typewriter1', {
-    strings: ['+977 9823460246', '+91 7200474587'],
+    strings: ['+977 9823460246'],
     autoStart: true,
     loop:true,
     cursor:"|"
   });
   new Typewriter('#typewriter2', {
-    strings: ['Suryabinayak-04, Bhaktapur, Nepal', 'Potheri, 603203, India'],
+    strings: ['Suryabinayak-04, Bhaktapur, Nepal'],
     autoStart: true,
     loop:true,
     cursor:"|"
