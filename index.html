@@ -1,505 +1,618 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      type="text/css"
-      href="/css/argon-design-system.min.css"
-      rel="stylesheet"
-    />
-    <!-- fonts -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Pankaj Bhattarai — PhD student in Computer Science (Computational Biology & Bioinformatics) at Florida State University." />
+  <title>Pankaj Bhattarai</title>
+  <style>
 
-    <!-- icons -->
-    <link
-      rel="stylesheet"
-      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
-    />
-    <!-- Own css -->
+    :root{
+      --bg: #fbfcfe;
+      --paper: #ffffff;
+      --ink: #0f172a;
+      --muted: #475569;
+      --muted2:#64748b;
+      --line: #e2e8f0;
+      --soft: #f1f5f9;
+      --accent: #2563eb;   /* blue */
+      --accent2:#059669;   /* green */
+      --accent3:#7c3aed;   /* purple */
+      --warn:#b45309;
 
-    <link href="css/style.css" rel="stylesheet" />
-    <link type="text/css" href="css/style.css" rel="stylesheet" />
-    <title>Pankaj Bhattarai</title>
-  </head>
-  <body>
-    <!-- header -->
-    <header class="header" id="header">
-      <nav class="nav container navbar-expand-lg">
-        <a href="#" class="nav__logo navbar-brand ml-3">Pankaj Bhattarai</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbar-default"
-          aria-controls="navbar-default"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="nav__menu" id="nav-menu">
-          <ul class="nav__list grid">
-            <li class="nav__item">
-              <a href="#home" class="nav__link">
-                <i class="uil uil-home nav__icon"></i>Home
-              </a>
-            </li>
-            <li class="nav__item">
-              <a href="#about" class="nav__link">
-                <i class="uil uil-user-circle nav__icon"></i>About Me
-              </a>
-            </li>
-            <li class="nav__item">
-              <a href="https://literature.pankajbhattarai.com.np/" class="nav__link">
-                <i class="uil uil-book nav__icon"></i>Literature
-              </a>
-            </li>
-            <li class="nav__item">
-              <a href="#qualifications" class="nav__link">
-                <i class="uil uil-desktop nav__icon"></i>Qualifications
-              </a>
-            </li>
-            <li class="nav__item">
-              <a href="#contact" class="nav__link">
-                <i class="uil uil-envelope-heart nav__icon"></i>Contact Me
-              </a>
-            </li>
-          </ul>
-          <i class="uil uil-times nav__close" id="nav-close"></i>
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+
+      --shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+      --radius: 16px;
+    }
+
+    *{ box-sizing: border-box; }
+    html, body { height: 100%; }
+
+    body{
+      margin:0;
+      color: var(--ink);
+      background:
+        radial-gradient(900px 450px at 12% 8%, rgba(37,99,235,0.10), rgba(251,252,254,0) 55%),
+        radial-gradient(900px 450px at 88% 10%, rgba(5,150,105,0.10), rgba(251,252,254,0) 55%),
+        radial-gradient(900px 450px at 70% 92%, rgba(124,58,237,0.08), rgba(251,252,254,0) 55%),
+        var(--bg);
+      font-family: var(--sans);
+      line-height: 1.55;
+    }
+
+    a{ color: var(--accent); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+
+    .skip{
+      position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden;
+    }
+    .skip:focus{
+      left:16px; top:12px; width:auto; height:auto; padding:10px 12px;
+      background: var(--paper); border:1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow);
+      z-index: 999;
+    }
+
+    .wrap{
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 26px 18px 70px;
+      position: relative;
+    }
+
+    /* Decorative sequences floating around */
+    .seq{
+      position: absolute;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: rgba(15, 23, 42, 0.35);
+      letter-spacing: 1.2px;
+      user-select: none;
+      pointer-events: none;
+      white-space: nowrap;
+      filter: blur(0.1px);
+    }
+    .seq b{ color: rgba(37,99,235,0.55); font-weight: 700; }
+
+    .seq.s1{ top: 18px; left: 14px; transform: rotate(-2deg); }
+    .seq.s2{ top: 120px; right: 22px; transform: rotate(3deg); }
+    .seq.s3{ top: 440px; left: 10px; transform: rotate(-4deg); }
+    .seq.s4{ top: 720px; right: 10px; transform: rotate(4deg); }
+    .seq.s5{ bottom: 34px; left: 18px; transform: rotate(-2deg); }
+
+    /* Layout */
+    header{
+      position: relative;
+      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.90));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .header-inner{
+      padding: 18px 18px 14px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 16px;
+      align-items: start;
+    }
+
+    @media (max-width: 860px){
+      .header-inner{ grid-template-columns: 1fr; }
+    }
+
+    .name{
+      margin: 0;
+      font-size: 34px;
+      letter-spacing: 0.2px;
+    }
+
+    .subtitle{
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .badges{
+      margin-top: 10px;
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .badge{
+      display: inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      background: var(--soft);
+      border-radius: 999px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .dot{ width:8px; height:8px; border-radius: 999px; background: var(--accent2); }
+
+    .card{
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(241,245,249,0.55);
+      padding: 12px 12px;
+    }
+
+    .meta{
+      display:grid;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .meta strong{ color: var(--ink); font-weight: 650; }
+
+    nav{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 0 18px 16px;
+    }
+
+    nav a{
+      padding: 7px 10px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      border-radius: 12px;
+      font-size: 13px;
+      color: var(--ink);
+    }
+
+    nav a:hover{
+      border-color: rgba(37,99,235,0.35);
+      background: rgba(37,99,235,0.06);
+      text-decoration: none;
+    }
+
+    /* Helix accent (SVG) */
+    .helix{
+      position:absolute;
+      inset: -30px -40px auto auto;
+      width: 290px;
+      height: 190px;
+      opacity: 0.18;
+      pointer-events:none;
+    }
+
+    main{
+      margin-top: 16px;
+      display:grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 900px){
+      main{ grid-template-columns: 1fr; }
+    }
+
+    section{
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.06);
+      padding: 14px 16px;
+    }
+
+    h2{
+      margin: 0 0 10px;
+      font-size: 14px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent3);
+    }
+
+    .sub{
+      margin: 0 0 10px;
+      color: var(--muted2);
+      font-size: 13px;
+    }
+
+    .item{
+      padding: 10px 0;
+      border-top: 1px solid var(--line);
+    }
+    .item:first-child{ border-top:none; padding-top: 0; }
+
+    .row{
+      display:flex;
+      justify-content:space-between;
+      align-items:baseline;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .title{ font-weight: 700; }
+    .when{ color: var(--muted2); font-size: 13px; }
+    .where{ color: var(--muted); font-size: 13px; margin-top: 2px; }
+
+    ul{ margin: 8px 0 0 18px; }
+    li{ margin: 6px 0; }
+
+    .pills{ display:flex; flex-wrap:wrap; gap: 8px; margin-top: 10px; }
+    .pill{
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--soft);
+      color: rgba(15,23,42,0.85);
+    }
+
+    .pill em{ font-style: normal; color: var(--accent); }
+
+    .callout{
+      border: 1px solid rgba(5,150,105,0.35);
+      background: rgba(5,150,105,0.06);
+      border-radius: 14px;
+      padding: 10px 12px;
+      margin-top: 10px;
+      color: var(--muted);
+    }
+    .callout strong{ color: var(--accent2); }
+
+    .mono{
+      font-family: var(--mono);
+      background: rgba(37,99,235,0.06);
+      border: 1px solid rgba(37,99,235,0.18);
+      color: rgba(15,23,42,0.85);
+      border-radius: 14px;
+      padding: 10px 12px;
+      overflow:auto;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+
+    .mono b{ color: rgba(5,150,105,0.95); }
+
+    .btn{
+      display:inline-block;
+      margin-top: 8px;
+      padding: 9px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(37,99,235,0.28);
+      background: rgba(37,99,235,0.06);
+      color: var(--ink);
+      font-size: 13px;
+    }
+    .btn:hover{
+      border-color: rgba(5,150,105,0.45);
+      background: rgba(5,150,105,0.08);
+      text-decoration: none;
+    }
+
+    footer{
+      margin-top: 16px;
+      text-align:center;
+      color: var(--muted2);
+      font-size: 12px;
+    }
+
+    /* Gel-like divider */
+    .gel{
+      height: 10px;
+      border-radius: 999px;
+      background:
+        linear-gradient(90deg,
+          rgba(37,99,235,0.20),
+          rgba(5,150,105,0.18),
+          rgba(124,58,237,0.18)
+        );
+      border: 1px solid rgba(226,232,240,0.9);
+      margin: 12px 0;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <div class="wrap">
+    <!-- random sequence decorations -->
+    <div class="seq s1">5' <b>ATG</b>CGTACGTTAGCAGGTTACGTAACG <b>TAA</b> 3'</div>
+    <div class="seq s2">chr7: 55,086,724–55,087,112 • <b>ACGT</b>ACGTACGTACGT • depth≈42×</div>
+    <div class="seq s3">RNA: <b>AUG</b>GCUUACGGAUCUAAGGCUA • (fold?)</div>
+    <div class="seq s4">FASTA>pankaj_demo  <b>ATG</b>GAGTCTGATGCTGATGAC…</div>
+    <div class="seq s5">k-mer(31): <b>GATTACA</b>GATTACA…</div>
+
+    <header>
+      <!-- helix svg accent -->
+      <svg class="helix" viewBox="0 0 320 220" aria-hidden="true">
+        <defs>
+          <linearGradient id="g" x1="0" x2="1">
+            <stop offset="0" stop-color="#2563eb" />
+            <stop offset="0.55" stop-color="#059669" />
+            <stop offset="1" stop-color="#7c3aed" />
+          </linearGradient>
+        </defs>
+        <path d="M40,30 C120,10 200,60 280,30" fill="none" stroke="url(#g)" stroke-width="6" stroke-linecap="round" />
+        <path d="M40,70 C120,50 200,100 280,70" fill="none" stroke="url(#g)" stroke-width="6" stroke-linecap="round" />
+        <path d="M40,110 C120,90 200,140 280,110" fill="none" stroke="url(#g)" stroke-width="6" stroke-linecap="round" />
+        <path d="M40,150 C120,130 200,180 280,150" fill="none" stroke="url(#g)" stroke-width="6" stroke-linecap="round" />
+        <path d="M40,190 C120,170 200,220 280,190" fill="none" stroke="url(#g)" stroke-width="6" stroke-linecap="round" />
+        <!-- rungs -->
+        <g stroke="#0f172a" stroke-opacity="0.28" stroke-width="2">
+          <line x1="78" y1="28" x2="78" y2="70" />
+          <line x1="128" y1="18" x2="128" y2="60" />
+          <line x1="178" y1="58" x2="178" y2="100" />
+          <line x1="228" y1="28" x2="228" y2="70" />
+          <line x1="78" y1="108" x2="78" y2="150" />
+          <line x1="128" y1="98" x2="128" y2="140" />
+          <line x1="178" y1="138" x2="178" y2="180" />
+          <line x1="228" y1="108" x2="228" y2="150" />
+        </g>
+      </svg>
+
+      <div class="header-inner">
+        <div>
+          <h1 class="name">Pankaj Bhattarai</h1>
+          <p class="subtitle">Ph.D. student in Computer Science @ Florida State University • computational biology / bioinformatics • ML for biomedical data</p>
+          <div class="badges" aria-label="Quick facts">
+            <span class="badge"><span class="dot" aria-hidden="true"></span>GPA: <b style="color:var(--ink)">4.00/4.00</b> (current)</span>
+            <span class="badge">Role: <b style="color:var(--ink)">GRA</b> + <b style="color:var(--ink)">TA</b></span>
+          </div>
+          <div class="callout">
+First-year Ph.D. student in Computer Science with a strong background in machine learning and a growing
+research focus on computational biology and bioinformatics. Experienced in developing data-driven models
+for biomedical applications, working with large-scale datasets, and conducting research in collaborative,
+interdisciplinary environments.          </div>
         </div>
-         <div class="nav__btns">
-                <!-- THEME CHANGING BUTTONS -->
-                <i data-mode= "dark" class="uil uil-cloud-moon change-theme " id="theme-button"></i>
 
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class="uil uil-apps"></i>
-                </div>
-            </div>
+        <div class="card" aria-label="Contact">
+          <div class="meta">
+            <div><strong>Location</strong>: Tallahassee, FL 32304</div>
+            <div><strong>Email</strong>: <a href="mailto:pbhattarai@fsu.edu">pbhattarai@fsu.edu</a></div>
+          </div>
+          <div class="gel" aria-hidden="true"></div>
+          <div class="tiny" style="color:var(--muted2); font-size:12px;">
+          </div>
+        </div>
+      </div>
+
+      <nav aria-label="Site">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#research">Research</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#coursework">Coursework</a>
+        <a href="#publications">Publications</a>
+        <a href="#patents">Patents</a>
+        <a href="#talks">Talks</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#awards">Awards</a>
       </nav>
     </header>
-    <!-- =====================MAIN================================= -->
-    <main class="main">
-      <!-- home -->
-      <section class="home section" id="home">
-        <div class="home__container container grid">
-          <div class="home__content grid">
-            <div class="home__social">
-              <a
-                href="https://www.linkedin.com/in/pankajbhattarai/"
-                target="_blank"
-                class="home__social-icon"
-                id="myLinkedIn"
-              >
-                <i class="uil uil-linkedin"></i>
-              </a>
-              <a
-                href="https://www.instagram.com/im.endangered/"
-                target="_blank"
-                class="home__social-icon"
-                id="myInstagram"
-              >
-                <i class="uil uil-instagram"></i>
-              </a>
-              <a
-                href="https://www.facebook.com/im.endangered/"
-                target="_blank"
-                class="home__social-icon"
-                id="myFacebook"
-              >
-                <i class="uil uil-facebook"></i>
-              </a>
-              <a
-                href="https://github.com/im-endangered/"
-                target="_blank"
-                class="home__social-icon"
-                id="myGithub"
-              >
-                <i class="uil uil-github"></i>
-              </a>
-              <a
-                href="https://twitter.com/pankaj69420"
-                target="_blank"
-                class="home__social-icon"
-                id="myTwitter"
-              >
-                <i class="uil uil-twitter"></i>
-              </a>
-            </div>
+
+    <main id="main">
+      <!-- LEFT COLUMN -->
+      <div>
+        <section id="about">
+          <h2>About</h2>
+          <p>
+            I'm a first-year Ph.D. student in Computer Science at Florida State University.
+            My research direction is centered on <b>computational biology</b> and <b>bioinformatics</b>, with an emphasis on
+            machine learning methods for biomedical data.
+          </p>
+          <p class="sub">
+            Current goals: build strong baselines, learn the biology behind the data, and produce reproducible results.
+          </p>
+          <div class="mono" aria-label="Mini mantra">
+<pre>"Make it reproducible."  →  versions + seeds + scripts + logs
+"Measure everything."    →  baselines + ablations + honest metrics
+"Respect the biology."   →  assumptions + confounders + validation</pre>
           </div>
-          <div class="home__data">
-            <small class="home__welcome s-color"> Hey Pretty Stranger!! </small>
-            <h1 class="home__title">I am</h1>
-            <!-- <h3 class="home__subtitle" id="home-bio">A learner </h3> -->
+          <a class="btn" href="#publications">Go to Publications →</a>
+        </section>
 
-              <div id="typewriter" class="Typewriter"></div>
-            <a href="#contact" class="button button--flex"
-              >Contact Me<i class="uil uil-comment-message button__icon"></i
-            ></a>
-          </div>
-        
-        </div>
-        <div class="home__scroll">
-          <a href="#about" class="home__scroll-button button--flex">
-            <i class="uil uil-mouse-alt home__scroll-mouse"></i>
-            <!-- <span class="home__scroll-name">Scroll Down</span>
-            <i class="uil uil-arrow-down home__scroll-arrow"></i> -->
-          </a>
-        </div>
-      </section>
-      <!-- about me -->
-      <section class="about section" id="about">
-        <h2 class="section__title">About</h2>
-        <span class="section__subtitle">Little things about me </span>
-        <div class="about__container container grid">
-            <img src="assets/photo.jpg" alt="main image" class="about__image">
-            <div class="about__data">
-              <p class="about__description" id="home-about">
-                A tech enthusiast finding his way through the world of research and applying them to create real life solutions. I am also co-founder at <a href="https://www.kalpabriksha.org" target="_blank" class="paragragh__links"></i> Kalpabriksha </a>.
-                I have also authored some posts at <a href="https://serverdownapb.wordpress.com/by-pankaj-bhattari-pankajbhattarai50gmail-com/" class="paragragh__links" target="_blank">Server Down</a>.
-              </p>
+        <section id="education">
+          <h2>Education</h2>
+          <div class="item">
+            <div class="row">
+              <div class="title">Florida State University</div>
+              <div class="when">Fall 2025 — Present</div>
             </div>
-            <div class="about__buttons">
-              <a href="assets/CV.pdf" download="myCV" target="_blank" class="button button--flex">
-                Download CV<i class="uil uil-file-download-alt button__icon"></i>
-              </a>
-            </div>
-            <br>
-            <div class="about__buttons">
-              <a href="https://literature.pankajbhattarai.com.np/"  class="button button--flex">
-                Literatures<i class="uil uil-book button__icon"></i>
-              </a>
-            </div>
-        </div>
-      </section>
-      <!-- qualifications -->
-      <section class="qualifications section" id="qualifications">
-        <h2 class="section__title">Qualifications</h2>
-        <span class="section__subtitle">
-          My Educational Journey
-        </span>
-        <div class="qualification__container container">
-          <div class="row mt-lg-0">
-            <div class="col-lg-6 col-sm-10 col-md-10 mt-2 qualification__content" id="education">
-              <div class="qualification__button button--flex">
-                  <i class="uil uil-graduation-cap qualification__icon"></i> Education
-              </div>
-
-              <div id="education_timeline">
-                  <div class="container py-2">
-
-                      <!-- Timeline item 1 -->
-                      <div class="row">
-                          <!-- Timeline design -->
-                          <div class="col-auto text-center flex-column d-sm-flex">
-                              <div class="row h-50 qualification__journey">
-                                  <div class="col">
-                                      <span class="qualification__line"></span>
-                                  </div>
-                                  <div class="col">&nbsp;</div>
-                              </div>
-
-                              <h5>
-                                  <span class="badge qualification__calendar">
-                                      <i class="uil uil-calendar-alt qualification__calendar-icon"></i>
-                                      2024
-                                  </span>
-                              </h5>
-
-                              <div class="row h-50 qualification__journey">
-                                  <div class="col">
-                                      <span class="qualification__line"></span>
-                                  </div>
-                                  <div class="col">&nbsp;</div>
-                              </div>
-                          </div>
-                          <!-- Timeline content Events -->
-                          <div class="col py-2">
-                              <div class="card education-card transparent_card mirror-face shadow2">
-                                  <div class="card-body">
-                                      <div class="task">
-                                          <div class="abstract">
-                                              <h3 class="qualification__title"> Undergraduate </h3>
-                                              <p class="qualification__subtitle">SRM Institute of Science and Technology </p>
-                                          </div>
-                                          <div class="details">
-                                              <p class="qualification__subtitle"> Bachelor's in Technology - Computer Science and Engineering with Specialization in Cyber Security </p>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-
-                      <!-- Timeline item 2 -->
-                      <div class="row">
-                          <!-- Timeline design -->
-                          <div class="col-auto text-center flex-column d-sm-flex">
-                              <div class="row h-50 qualification__journey">
-                                  <div class="col">
-                                      <span class="qualification__line"></span>
-                                  </div>
-                                  <div class="col">&nbsp;</div>
-                              </div>
-
-                              <h5>
-                                  <span class="badge qualification__calendar">
-                                      <i class="uil uil-calendar-alt qualification__calendar-icon"></i>
-                                      2020
-                                  </span>
-                              </h5>
-
-                              <div class="row h-50 qualification__journey">
-                                  <div class="col">
-                                      <span class="qualification__line"></span>
-                                  </div>
-                                  <div class="col">&nbsp;</div>
-                              </div>
-                          </div>
-                          <!-- Timeline content Events -->
-                          <div class="col py-2">
-                              <div class="card education-card transparent_card mirror-face shadow2">
-                                  <div class="card-body">
-                                      <div class="task">
-                                          <div class="abstract">
-                                              <h3 class="qualification__title"> High School </h3>
-                                              <p class="qualification__subtitle"> DAVSKVBSS, Lalitpur, Nepal </p>
-                                          </div>
-                                          <div class="details">
-                                              <p class="qualification__subtitle"> Studied PCM </p>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                       <div class="row">
-                          <!-- Timeline design -->
-                          <div class="col-auto text-center flex-column d-sm-flex">
-                              <div class="row h-50 qualification__journey">
-                                  <div class="col">
-                                      <span class="qualification__line"></span>
-                                  </div>
-                                  <div class="col">&nbsp;</div>
-                              </div>
-
-                              <h5>
-                                  <span class="badge qualification__calendar">
-                                      <i class="uil uil-calendar-alt qualification__calendar-icon"></i>
-                                      2018
-                                  </span>
-                              </h5>
-
-                              <div class="row h-50 qualification__journey">
-                                  <div class="col">
-                                      <span class="qualification__line"></span>
-                                  </div>
-                                  <div class="col">&nbsp;</div>
-                              </div>
-                          </div>
-                          <!-- Timeline content Events -->
-                          <div class="col py-2">
-                              <div class="card education-card transparent_card mirror-face shadow2">
-                                  <div class="card-body">
-                                      <div class="task">
-                                          <div class="abstract">
-                                              <h3 class="qualification__title"> Secondary School </h3>
-                                              <p class="qualification__subtitle"> Adarsha Janapremi ESS </p>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-
-                       <!-- Timeline item end -->
-                       <div class="row">
-                        <!-- Timeline design -->
-                        <div class="col-auto text-center flex-column d-sm-flex">
-                            <div class="row h-50 qualification__journey">
-                                <div class="col">
-                                    <span class="qualification__start">
-                                        <i class="uil uil-rocket qualification__start-icon"></i>
-                                    </span>
-                                </div>
-                                <div class="col">&nbsp;</div>
-                            </div>
-                        </div>
-                        <!-- Timeline content Events -->
-                        <div class="col py-2"></div>
-                    </div>
-                  </div>
-              </div>
-          </div>
-        </div>
-      </section>
-      <!-- contact me  -->
-      <section class="contact section" id="contact">
-        <h2 class="section__title">Contact Me</h2>
-        <span class="section__subtitle">
-          Get in Touch with Me 
-        </span>
-        <div class="row mt-lg-6 justify-content-center contact_mail">
-          <div class="col-lg-6 mx-lg-0 mx-2 contact__container">
-            <div class="contact__information">
-              <i class="uil uil-phone contact__icon "></i>
-              <div class="contact__title">
-                <h3>Call Me</h3>
-                <span class="contact__subtitle" id="typewriter1"></span>
-              </div>
-
-            </div>
-            <div class="contact__information">
-              <i class="uil uil-envelope-minus contact__icon"></i>
-              <div class="contact__title">
-                <h3>Email</h3>
-                <span class="contact__subtitle">pankajbhattarai50@gmail.com</span>
-              </div>
-
-            </div>
-            <div class="contact__information">
-              <i class="uil uil-map-pin contact__icon"></i>
-              <div class="contact__title">
-                <h3>Address</h3>
-                <span class="contact__subtitle" id="">Suryabinayak 04 Bhaktapur</span>
-              </div>
-
-            </div>
-          </div>
-          <div class="col-lg-6 pl-lg-4 mt-lg- 0 mt-6 contact-form" id="message-me">
-            <h2 class="contact__title">Wanna get in touch?</h2>
-            <form action="#" method="POST" class="cf">
-                <div class="row">
-                  <div class="col-lg-6">
-                    <input type="text" name="message-name" class="form-control mb-30 cf" placeholder="Name">
-                  </div>
-                  <div class="col-lg-6">
-                    <input type="email" name="message-email" class="form-control mb-30 cf" placeholder="E-mail">
-                  </div>
-                  <div class="col-12">
-                    <input type="text" name="message-subject" class="form-control mb-30 cf" placeholder="Subject">
-                  </div>
-                  <div class="col-12">
-                    <textarea name="message" class="form-control mb-30 cf" id="" cols="30" rows="10" placeholder="Message"></textarea>
-                  </div>
-                  <div class="col-12">
-                    <button type="submit" class="button button--flex send-message form-button">
-                      Submit<i class="uil uil-message button__icon"></i>
-                    </button>
-                  </div>
-                </div>
-            </form>
-          </div>
-        </div>
-      </section>
-    </main>
-    <!-- footer -->
-    <footer class="footer">
-      <div class="footer__bg">
-          <div class="footer__container container grid">
-
-              <div>
-                  <h1 class="footer__title"> Pankaj Bhattarai </h1>
-                  <span class="footer__subtitle"> Computer Engineer</span>
-              </div>
-
-              <ul class="footer__links">
-                  <li>
-                      <a href="#about" class="footer__link"> About Me</a>
-                  </li>
-
-                  <li>
-                      <a href="#contact" class="footer__link"> Contact Me</a>
-                  </li>
-              </ul>
-
-              <div class="footer__socials">
-                <a
-                href="https://www.linkedin.com/in/pankajbhattarai/"
-                target="_blank"
-                class="footer__social"
-                id=""
-              >
-                <i class="uil uil-linkedin"></i>
-              </a>
-              <a
-                href="https://www.instagram.com/im.endangered/"
-                target="_blank"
-                class="footer__social"
-                id=""
-              >
-                <i class="uil uil-instagram"></i>
-              </a>
-              <a
-                href="https://www.facebook.com/im.endangered/"
-                target="_blank"
-                class="footer__social"
-                id=""
-              >
-                <i class="uil uil-facebook"></i>
-              </a>
-              <a
-                href="https://github.com/im-endangered/"
-                target="_blank"
-                class="footer__social"
-                id=""
-              >
-                <i class="uil uil-github"></i>
-              </a>
-              <a
-                href="https://twitter.com/pankaj69420"
-                target="_blank"
-                class="footer__social"
-                id=""
-              >
-                <i class="uil uil-twitter"></i>
-              </a>
-              </div>
+            <div class="where">Ph.D. in Computer Science • Tallahassee, FL</div>
+            <div class="where">GPA: <b>4.00 / 4.00 (current)</b> • Focus: Computational Biology and Bioinformatics</div>
           </div>
 
-          <p class="footer__copy">&#169; Pankaj Bhattarai</p>
+          <div class="item">
+            <div class="row">
+              <div class="title">SRM Institute of Science and Technology</div>
+              <div class="when">2020 — 2024</div>
+            </div>
+            <div class="where">B.Tech in Computer Science and Engineering  • Chennai, India</div>
+            <div class="where">CGPA: <b>9.53 / 10</b></div>
+          </div>
+        </section>
+
+        <section id="research">
+          <h2>Research</h2>
+          <p class="sub">Graduate Research Assistant (GRA) • Florida State University • Fall 2025 — Present</p>
+          <ul>
+            <li>Conducting research in computational biology and bioinformatics using machine learning approaches.</li>
+            <li>Designing and evaluating models for biomedical data analysis and disease detection.</li>
+            <li>Working with large datasets on <b>Linux-based HPC clusters</b> (batch scheduling, reproducible workflows).</li>
+            <li>Building preprocessing + training + validation pipelines in <b>Python</b> (NumPy/Pandas, scikit-learn, PyTorch).</li>
+            <li>Documenting experiments (configs, seeds, ablations) to support reproducibility.</li>
+          </ul>
+        </section>
+
+        <section id="teaching">
+          <h2>Teaching</h2>
+          <p class="sub">Graduate Teaching Assistant (TA) • Florida State University • Fall 2025 — Present</p>
+
+          <div class="item">
+            <div class="row">
+              <div class="title">Courses TA'd</div>
+            </div>
+            <ul>
+              <li><b>CGS2060</b> — <b>Computer Fluency</b> (Term: <b>Spring 2026, Fall 2025</b>)</li>
+              <li><b>CGS2100</b> — <b>Microcomputer Applications for Business/Economics</b> (Term: <b>Spring 2026, Fall 2025</b>)</li>
+            </ul>
+          </div>
+
+          <div class="item">
+            <div class="row">
+              <div class="title">Responsibilities</div>
+              <div class="when">TA</div>
+            </div>
+            <ul>
+              <li>Conducting office hours to support students with problem solving.</li>
+              <li>Providing feedbacks on grading based on consistent rubrics.</li>
+              <li>Helping solve projects, explain concepts, and keep course logistics running smoothly.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="coursework">
+          <h2>Relevant Coursework</h2>
+          <div class="item">
+            <div class="row">
+              <div class="title">Florida State University (PhD)</div>
+              <div class="when">Fall 2025 — Present</div>
+            </div>
+            <ul>
+              <li><b>COT5507</b> — Analytic Methods for Computer Science</li>
+              <li><b>CAP5540</b> — Bioinformatics - Sequence Analysis</li>
+              <li><b>COT5405</b> — Advanced Algorithms</li>
+              <li><b>CAP5638</b> — Pattern Recognition</li>
+            </ul>
+          </div>
+
+          <div class="item">
+            <div class="row">
+              <div class="title">SRMIST (B.Tech)</div>
+              <div class="when">2020 — 2024</div>
+            </div>
+            <ul>
+              <li><b>18CSC305J</b> — Artifical Intelligence</li>
+              <li><b>18NTO403T</b> — Scientific Research Principles</li>
+              <li><b>18GEO104T</b> — Computational Genomics</li>
+              <li><b>18CSC201J</b> — Data Structures and Algorithms</li>
+              <li><b>18ECO108J</b> — Embedded System Design</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="publications">
+          <h2>Publications</h2>
+          <div class="item">
+            <div class="title">Detection of Pneumonia Using Machine Learning</div>
+            <div class="where">Pankaj Bhattarai; K. A. Varun Kumar; Balachandar T; Rashmi Od • ACM ICIMMI 2023</div>
+            <div class="where">DOI: <a href="https://doi.org/10.1145/3647444.3652464" target="_blank" rel="noreferrer">10.1145/3647444.3652464</a></div>
+          </div>
+        </section>
+
+        <section id="patents">
+          <h2>Patents</h2>
+          <div class="item">
+            <div class="title">AI Based Plant Extract Analysing Device to Identify Disease</div>
+            <div class="where">Design No. 392971-001 • Granted by the Patent Office, Government of India</div>
+          </div>
+        </section>
+
+        <section id="talks">
+          <h2>Talks & Presentations</h2>
+          <div class="item">
+            <div class="row">
+              <div class="title">Detection of Pneumonia using Machine Learning</div>
+              <div class="when">Dec 2023</div>
+            </div>
+            <div class="where">5th International Conference on Information Management & Machine Intelligence (ICIMMI 2023)</div>
+          </div>
+        </section>
+
+        <section id="projects">
+          <h2>Selected Projects</h2>
+          <p class="sub">These can be rewritten into stronger, results-style bullets once details are available.</p>
+          <ul>
+            <li><b>Detection of Cyber Attacks on Internet Connected Vehicles</b> — security analytics and anomaly detection.</li>
+            <li><b>Plant Disease Detection System</b> — AI-based classification workflow.</li>
+            <li><b>AI Chatbot using NLP</b> — NLP + ML pipeline experimentation.</li>
+            <li><b>Face-based Authentication System</b> — applied computer vision prototype.</li>
+            <li><b>C Header for Vector Manipulation</b> — low-level data structure utilities.</li>
+          </ul>
+        </section>
       </div>
-  </footer>
 
-    <a href="#home" class="scrollup" id="scroll-up">
-      <i class="uil uil-arrow-up scrollup__icon"></i>
-    </a>
-    <!-- JavaScript Bundle with Popper
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-      crossorigin="anonymous"
-    ></script> -->
-    <!-- Core -->
-    <script src="js/core/jquery.min.js"></script>
-    <script src="js/core/popper.min.js"></script>
-    <script src="js/core/bootstrap.min.js"></script>
+      <!-- RIGHT COLUMN -->
+      <div>
+        <section id="skills">
+          <h2>Skills</h2>
+          <p class="sub">Skills</p>
 
-    <!-- Argon JS -->
-    <script src="js/argon-design-system.js"></script>
-    <!-- typewriter -->
-    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
-    <!-- self script -->
-    <script src="js/script.js"></script>
-<!--<<<<<<< HEAD
-    
-=======
->>>>>>> ee49600a87f046355f6bc196a420b1062cc5391c-->
-  </body>
+          <div class="pills" aria-label="Skill tags">
+            <span class="pill"><em>Python</em></span>
+            <span class="pill"><em>C/C++</em></span>
+            <span class="pill"><em>ML</em>: scikit-learn, PyTorch</span>
+            <span class="pill"><em>Data</em>: NumPy, Pandas</span>
+            <span class="pill"><em>Scientific computing</em></span>
+            <span class="pill"><em>HPC</em>: Linux clusters, batch scheduling</span>
+            <span class="pill"><em>Reproducibility</em>: Git, LaTeX</span>
+            <span class="pill"><em>Databases</em>: SQL/NoSQL</span>
+            <span class="pill"><em>Web dev & hosting</em></span>
+          </div>
+
+          <div class="mono" aria-label="Bioinformatics snippets">
+<pre>
+FASTA>demo
+ATGCGTACGTTAGCAGGTTACGTAACGTAA
+
+read_001  ATGCGTACGTTAGCA--GTTACGTA
+ref       ATGCGTACGTTAGCAGGGTTACGTA</pre>
+          </div>
+        </section>
+
+        <section id="awards">
+          <h2>Honors & Awards</h2>
+          <div class="item">
+            <div class="row">
+              <div class="title">Winning Team — SRM Smart Campus Hackathon</div>
+              <div class="when">2023</div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="row">
+              <div class="title">Compex Scholarship — Government of India</div>
+              <div class="when">2020</div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Contact</h2>
+          <p class="sub">Best way to reach me is email.</p>
+          <div class="card">
+            <div class="meta">
+              <div><strong>Email</strong>: <a href="mailto:pbhattarai@fsu.edu">pbhattarai@fsu.edu</a></div>
+              <div><strong>Location</strong>: Tallahassee, FL 32304</div>
+            </div>
+          </div>
+          <div class="callout"><strong>Collaboration:</strong> if you're working on bioinformatics / computational biology, I’m happy to chat.</div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div>© <span id="y"></span> Pankaj Bhattarai </div>
+      <div>Last updated: <span id="d"></span></div>
+    </footer>
+  </div>
+
+  <script>
+    // No tracking. Just date stamps.
+    const now = new Date();
+    document.getElementById('y').textContent = now.getFullYear();
+    document.getElementById('d').textContent = now.toISOString().slice(0,10);
+  </script>
+</body>
 </html>
